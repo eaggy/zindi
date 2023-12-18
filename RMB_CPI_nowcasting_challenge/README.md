@@ -42,7 +42,7 @@ The files `submission_best_3m.csv` and `submission_best_max_3m.csv` were submitt
 The running time of this script on HP ZBook 15 G3 (Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz) is **70 minutes**.
 
 This script uses data (see below) downloaded from Statistics South Africa StatsSA (https://www.statssa.gov.za/)
-and South African Reserve Bank SARB (https://www.resbank.co.za/). The data are saved in the folder `cpi_submission_zindi/data/` as
+and South African Reserve Bank SARB (https://www.resbank.co.za/). The data are saved in the folder `RMB_CPI_nowcasting_challenge/data/` as
 CSV-files `statssa_2023{mm}.csv` and `sarb_2023{mm}.csv` respectively, where {mm} is 08 to forecast CPI for September,
 09 to forecast CPI for October, and 10 to forecast CPI for November. The newest versions of these files can be downloaded by running the script:
 
@@ -172,19 +172,19 @@ The following external data sources are used:
 
 * StatsSA data - historical CPI data from this page
 https://www.statssa.gov.za/?page_id=1847 Timeseries File P0141 - CPI(COICOP) from Jan 2008 (202310).zip in ASCII format.
-This file can be downloaded with `cpi_submission_zindi/downloader.py` and saved as CSV-file in `cpi_submission_zindi/data/`.
+This file can be downloaded with `RMB_CPI_nowcasting_challenge/downloader.py` and saved as CSV-file in `RMB_CPI_nowcasting_challenge/data/`.
 
 * SARB data - various time series from SARB online statistical query: https://www.resbank.co.za/en/home/what-we-do/statistics/releases/online-statistical-query.
-The SARB codes of the time series to download are defined in `cpi_submission_zindi/sarb.py` by `data_codes`.
+The SARB codes of the time series to download are defined in `RMB_CPI_nowcasting_challenge/sarb.py` by `data_codes`.
 Descriptions of time series are provided as comments in the same file.
 Some time series are delivered with quarterly frequency. These series are downsampled to a monthly frequency.
 It is possible to download some time series with daily frequency using SARB Web API: https://custom.resbank.co.za/SarbWebApi/
-The API codes of such series are defined as values of dictionary `API_MAPPING` in `cpi_submission_zindi/sarb.py`.
+The API codes of such series are defined as values of dictionary `API_MAPPING` in `RMB_CPI_nowcasting_challenge/sarb.py`.
 This dictionary also maps the SARB codes from online statistical query with the API codes.
 The daily time series defined in `API_MAPPING` are downloaded using the SARB Web API and
 then upsampled to monthly frequency using the averaging over the entire month.
 The SARB data can be downloaded from the SARB statistical query and SARB Web API
-with `cpi_submission_zindi/downloader.py` and saved as CSV-file in `cpi_submission_zindi/data/`.
+with `RMB_CPI_nowcasting_challenge/downloader.py` and saved as CSV-file in `RMB_CPI_nowcasting_challenge/data/`.
 
 ## How It Works
 * Historical CPI data (StatsSA data) are used as Y data. All models created here use only
