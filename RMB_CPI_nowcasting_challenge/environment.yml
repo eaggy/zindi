@@ -1,0 +1,16 @@
+name: cpi
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - catboost=1.1.1
+  - lightgbm=3.3.5
+  - pmdarima=2.0.3
+  - scikit-learn=1.2.2
+  - statsmodels=0.13.2
+  - pandas=1.5.1
+  - requests=2.31.0
+  - pip:
+    - xgboost==1.7.6
