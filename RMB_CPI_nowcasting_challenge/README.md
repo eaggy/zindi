@@ -2,9 +2,9 @@
 * Unzip project.
 * Go to project folder:
 
-    `cd cpi_submission_zindi`
+    `cd RMB_CPI_nowcasting_challenge`
 
-* Create new conda virtual environment:
+* Create a new conda virtual environment:
 
     `conda env create -f environment.yml`
 
@@ -12,7 +12,7 @@
 
     `conda activate cpi`
 
-* Set proper value of `END_MONTH` in the file `settings.py`.
+* Set the proper value of `END_MONTH` in the file `settings.py`.
 To predict CPI for September 2023 this value must be "2023-08" (one month before).
 To predict October 2023 - "2023-09", November 2023 - "2023-10", and so on.
 
@@ -20,20 +20,20 @@ To predict October 2023 - "2023-09", November 2023 - "2023-10", and so on.
 
     `python forecaster.py`
 
-    to make prediction and generate submission CSV-files in the folder `cpi_submission_zindi/data/output/`.
-The script generate four files:
-1. `submission_best_{month}.csv`, where {month} is the forecasting month (September, October, or November). The monthly forecast of best model (see below) for all 13 CPI components for this month.
-2. `submission_best_max_{month}.csv`, where {month} is the forecasting month (September, October, or November). The monthly forecast of best max model (see below) for all 13 CPI components for this month.
-3. `submission_best_3m.csv` - the forecast of best model (see below) for all 39 (3x13) CPI components for months September, October, and November
+    to make predictions and generate submission CSV-files in the folder `cpi_submission_zindi/data/output/`.
+The script generates four files:
+1. `submission_best_{month}.csv`, where {month} is the forecasting month (September, October, or November). The monthly forecast of the best model (see below) for all 13 CPI components for this month.
+2. `submission_best_max_{month}.csv`, where {month} is the forecasting month (September, October, or November). The monthly forecast of the best max model (see below) for all 13 CPI components for this month.
+3. `submission_best_3m.csv` - the forecast of the best model (see below) for all 39 (3x13) CPI components for the months September, October, and November
 This file is built using the monthly forecast files of the best model for
 September, October, and November:`submission_best_September.csv`,`submission_best_October.csv`,`submission_best_November.csv`.
-If monthly forecast files are not yet existing, zero values will be used to build this file. Therefore, it is important to keep
+If monthly forecast files do not yet exist, zero values will be used to build this file. Therefore, it is important to keep
 all already generated monthly forecast files in this folder to ensure,
 that this file will be properly populated with CPI values from the monthly forecast files.
-4. `submission_best_max_3m.csv` - the forecast of best max model (see below) for all 39 (3x13) CPI components for months September, October, and November
+4. `submission_best_max_3m.csv` - the forecast of the best max model (see below) for all 39 (3x13) CPI components for the months September, October, and November
 This file is built using the monthly forecast files of the best max model for
 September, October, and November:`submission_best_max_September.csv`,`submission_best_max_October.csv`,`submission_best_max_November.csv`.
-If monthly forecast files are not yet existing, zero values will be used to build this file. Therefore, it is important to keep
+If monthly forecast files do not yet exist, zero values will be used to build this file. Therefore, it is important to keep
 all already generated monthly forecast files in this folder to ensure,
 that this file will be properly populated with CPI values from the monthly forecast files.
 
@@ -52,8 +52,8 @@ This script does not overwrite CSV-files automatically.
 The existing CSV-files `statssa_2023{mm}.csv` and `sarb_2023{mm}.csv` must be deleted manually before run the script.
 
 **IMPORTANT! Do not run this script during the validation of the submitted solution.
-Because with newest downloaded data slightly different CPI values could be predicted.
-Instead, use provided files, which were downloaded on the submission day.**
+Because with the newest downloaded data slightly different CPI values could be predicted.
+Instead, use the provided files, which were downloaded on the submission day.**
 
 
 ## Project Structure
@@ -109,25 +109,25 @@ The folder `cpi_submission_zindi/data/`:
 
 `statssa_202310.csv` - file with data downloaded from StatsSA and containing historical data of all 13 CPI components (Y data) to make CPI prediction for November
 
-**IMPORTANT! Do not overwrite these files. Because with newest downloaded data slightly different CPI values could be predicted.**
+**IMPORTANT! Do not overwrite these files. Because with the newest downloaded data slightly different CPI values could be predicted.**
 
 The folder `cpi_submission_zindi/data/output/`:
 
-`submission_best_3m.csv` - CPI prediction for September, October, and November from best model (see below). **This file was submitted to Zindi.**
+`submission_best_3m.csv` - CPI prediction for September, October, and November from the best model (see below). **This file was submitted to Zindi.**
 
-`submission_best_max_3m.csv` - CPI prediction for September, October, and November from best max model (see below). **This file was submitted to Zindi.**
+`submission_best_max_3m.csv` - CPI prediction for September, October, and November from the best max model (see below). **This file was submitted to Zindi.**
 
-`submission_best_max_November.csv` - monthly CPI prediction for November from best max model (see below)
+`submission_best_max_November.csv` - monthly CPI prediction for November from the best max model (see below)
 
-`submission_best_max_October.csv` - monthly CPI prediction for October from best max model (see below)
+`submission_best_max_October.csv` - monthly CPI prediction for October from the best max model (see below)
 
-`submission_best_max_September.csv` - monthly CPI prediction for September from best max model (see below)
+`submission_best_max_September.csv` - monthly CPI prediction for September from the best max model (see below)
 
-`submission_best_November.csv` - monthly CPI prediction for November from best model (see below)
+`submission_best_November.csv` - monthly CPI prediction for November from the best model (see below)
 
-`submission_best_October.csv` - monthly CPI prediction for October from best model (see below)
+`submission_best_October.csv` - monthly CPI prediction for October from the best model (see below)
 
-`submission_best_September.csv` - monthly CPI prediction for September from best model (see below)
+`submission_best_September.csv` - monthly CPI prediction for September from the best model (see below)
 
 The folder `cpi_submission_zindi/src/download/`:
 
@@ -145,7 +145,7 @@ The folder `cpi_submission_zindi/src/`:
 
 `loader.py` - python class for loading from CSV-files and preparation of X and Y data
 
-`model.py` - main python class to crate models and make predictions of CPI
+`model.py` - main python class to create models and make predictions of CPI
 
 `sarimax.py` - python class for SARIMAX model
 
@@ -155,7 +155,7 @@ The folder `cpi_submission_zindi/src/`:
 
 The folder `cpi_submission_zindi/`:
 
-`downloader.py` - main script to download the newest SARB and StatsSA data from internet and save as CSV-files. **IMPORTANT! Do not run this script during the verification of submitted solution. Instead, use provided files, which were downloaded on the submission day.**
+`downloader.py` - main script to download the newest SARB and StatsSA data from the internet and save it as CSV-files. **IMPORTANT! Do not run this script during the verification of the submitted solution. Instead, use the provided files, which were downloaded on the submission day.**
 
 `environment.yml` - conda environment
 
@@ -163,7 +163,7 @@ The folder `cpi_submission_zindi/`:
 
 `README.md` - this file
 
-`sarb.py` - file contains codes and description of SARB data
+`sarb.py` - file contains codes and a description of SARB data
 
 `settings.py` - important project settings. It is only necessary to change `END_MONTH` to predict CPI for the new month (see above).
 
@@ -175,58 +175,58 @@ https://www.statssa.gov.za/?page_id=1847 Timeseries File P0141 - CPI(COICOP) fro
 This file can be downloaded with `cpi_submission_zindi/downloader.py` and saved as CSV-file in `cpi_submission_zindi/data/`.
 
 * SARB data - various time series from SARB online statistical query: https://www.resbank.co.za/en/home/what-we-do/statistics/releases/online-statistical-query.
-The SARB codes of time series to download are defined in `cpi_submission_zindi/sarb.py` by `data_codes`.
+The SARB codes of the time series to download are defined in `cpi_submission_zindi/sarb.py` by `data_codes`.
 Descriptions of time series are provided as comments in the same file.
-Some time series are delivered with quarterly frequency. These series are downsampled to monthly frequency.
+Some time series are delivered with quarterly frequency. These series are downsampled to a monthly frequency.
 It is possible to download some time series with daily frequency using SARB Web API: https://custom.resbank.co.za/SarbWebApi/
 The API codes of such series are defined as values of dictionary `API_MAPPING` in `cpi_submission_zindi/sarb.py`.
 This dictionary also maps the SARB codes from online statistical query with the API codes.
 The daily time series defined in `API_MAPPING` are downloaded using the SARB Web API and
-then upsampled to monthly frequensy using the averaging over the entire month.
-The SARB data can be downloaded from SARB statistical query and SARB Web API
+then upsampled to monthly frequency using the averaging over the entire month.
+The SARB data can be downloaded from the SARB statistical query and SARB Web API
 with `cpi_submission_zindi/downloader.py` and saved as CSV-file in `cpi_submission_zindi/data/`.
 
 ## How It Works
-* Historical CPI data (StatsSA data) are used as Y data. All models created here are used only
-one CPI component as a dependent variable of model. Therefore, there is a loop over all 13 CPI components.
+* Historical CPI data (StatsSA data) are used as Y data. All models created here use only
+one CPI component as a dependent variable of the model. Therefore, there is a loop over all 13 CPI components.
    * The following two transformations are applied to the Y data:
       1. Logarithm-transformation,
       2. Difference to the previous month.
     
-  At the end the inverse transformations are applied to predicted data to get normal predicted CPI values.
+  At the end, the inverse transformations are applied to predicted data to get normal predicted CPI values.
 
 * SARB time series are used as X data.
    * The following two transformations are applied to these data:
       1. Difference to the previous month, if all values in the time series are positive.
-      2. Tests for seasonality (CH test and OCSB test) and stationarity (ADF test, KPSS test, and PP test) are conducted on each time series to find most
-              probable (maximal value from group of the tests) values of "D" and "d". 
+      2. Tests for seasonality (CH test and OCSB test) and stationarity (ADF test, KPSS test, and PP test) are conducted on each time series to find the most
+              probable (maximal value from a group of the tests) values of "D" and "d". 
               If "D" and/or "d" > 0, the seasonal differencing of order "D"
-              and/or differencing of order "d" are applied to the time series.
+              and/or differencing of order "d" is applied to the time series.
    * Shift each time series if this time series has no values for the latest time points
-       (NaNs rows at the end of time series) till these NaNs rows will be gone
-       for the month when the prediction must be done. If shift is applied to the time series,
-           the suffix "_lag{n}" is added to the time series name, where {n} is number
+       (NaNs rows at the end of time series) till these NaNs rows are gone
+       for the month when the prediction must be done. If a shift is applied to the time series,
+           the suffix "_lag{n}" is added to the time series name, where {n} is the number
            of the applied shift steps.
    * Lags of the corresponding CPI component (Y data) are also added to the X data. Lags numbers
         are defined by `Y_LAGS` in `cpi_submission_zindi/settings.py`.
    * 12 monthly dummy variables are also added to the X data.
-   * COVID event is also add tho the X data as a spike on April 2020.
+   * COVID event is also added to the X data as a spike in April 2020.
 
-* X and Y data are split in a such way that last two years of data are used
-to validate models by calculating RMSE using walk forward validation.
+* X and Y data are split in a such way that the last two years of data are used
+to validate models by calculating RMSE using walk-forward validation.
 The oldest data are used for hyperparameters tuning of models.
 
 * The models are created and optimized using hyperparameters tuning on the oldest data.
 The used models are defined by `MODELS` in `cpi_submission_zindi/settings.py`.
 The hyperparameters for models optimization using grid search are defined for each model in `cpi_submission_zindi/grid.py`.
-The optimal models then are validated on the last two years of data by calculating RMSE using walk forward validation.
-Finally, each optimal model is used to make prediction of CPI component for the next month.
+The optimal models then are validated on the last two years of data by calculating RMSE using walk-forward validation.
+Finally, each optimal model is used to predict the CPI component for the next month.
 
 * The best model is constructed by selecting the optimal model with the smallest RMSE for each CPI component.
-* The best max model are constructed using following steps:
+* The best max model is constructed using the following steps:
    1. Validation threshold is calculated as `(1. + RANGE) x smallest RMSE` from the previous step. `RANGE` is defined in `cpi_submission_zindi/settings.py`.
    2. All optimized models with RMSE less than the validation threshold are selected.
-   3. The model giving the highest predicted CPI among all previous selected models is selected as best max model.
+   3. The model giving the highest predicted CPI among all previously selected models is selected as the best max model.
 
 For example, we have the following CPS11000 (restaurants and hotel) November predictions for all models:
 ````
