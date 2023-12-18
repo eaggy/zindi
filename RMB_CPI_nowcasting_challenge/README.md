@@ -20,7 +20,7 @@ To predict October 2023 - "2023-09", November 2023 - "2023-10", and so on.
 
     `python forecaster.py`
 
-    to make predictions and generate submission CSV-files in the folder `cpi_submission_zindi/data/output/`.
+    to make predictions and generate submission CSV-files in the folder `RMB_CPI_nowcasting_challenge/data/output/`.
 The script generates four files:
 1. `submission_best_{month}.csv`, where {month} is the forecasting month (September, October, or November). The monthly forecast of the best model (see below) for all 13 CPI components for this month.
 2. `submission_best_max_{month}.csv`, where {month} is the forecasting month (September, October, or November). The monthly forecast of the best max model (see below) for all 13 CPI components for this month.
@@ -95,7 +95,7 @@ RMB_CPI_nowcasting_challenge
 ├── sarb.py
 └── settings.py
 ````
-The folder `cpi_submission_zindi/data/`:
+The folder `RMB_CPI_nowcasting_challenge/data/`:
 
 `sarb_202308.csv` - file with data downloaded from SARB and containing various time series (see below) used as predictors (X data) to make CPI prediction for September 
 
@@ -111,7 +111,7 @@ The folder `cpi_submission_zindi/data/`:
 
 **IMPORTANT! Do not overwrite these files. Because with the newest downloaded data slightly different CPI values could be predicted.**
 
-The folder `cpi_submission_zindi/data/output/`:
+The folder `RMB_CPI_nowcasting_challenge/data/output/`:
 
 `submission_best_3m.csv` - CPI prediction for September, October, and November from the best model (see below). **This file was submitted to Zindi.**
 
@@ -129,7 +129,7 @@ The folder `cpi_submission_zindi/data/output/`:
 
 `submission_best_September.csv` - monthly CPI prediction for September from the best model (see below)
 
-The folder `cpi_submission_zindi/src/download/`:
+The folder `RMB_CPI_nowcasting_challenge/src/download/`:
 
 `sarb.py` - python class to download various time series (see below) from SARB and save in CSV-file
 
@@ -137,7 +137,7 @@ The folder `cpi_submission_zindi/src/download/`:
 
 `web.py` - python class of basic web downloader
 
-The folder `cpi_submission_zindi/src/`:
+The folder `RMB_CPI_nowcasting_challenge/src/`:
 
 `evaluator.py` - python class for models evaluation and forecasting
 
@@ -153,7 +153,7 @@ The folder `cpi_submission_zindi/src/`:
 
 `utils.py` - some useful functions
 
-The folder `cpi_submission_zindi/`:
+The folder `RMB_CPI_nowcasting_challenge/`:
 
 `downloader.py` - main script to download the newest SARB and StatsSA data from the internet and save it as CSV-files. **IMPORTANT! Do not run this script during the verification of the submitted solution. Instead, use the provided files, which were downloaded on the submission day.**
 
