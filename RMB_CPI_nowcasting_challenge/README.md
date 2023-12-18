@@ -208,7 +208,7 @@ one CPI component as a dependent variable of the model. Therefore, there is a lo
            the suffix "_lag{n}" is added to the time series name, where {n} is the number
            of the applied shift steps.
    * Lags of the corresponding CPI component (Y data) are also added to the X data. Lags numbers
-        are defined by `Y_LAGS` in `cpi_submission_zindi/settings.py`.
+        are defined by `Y_LAGS` in `RMB_CPI_nowcasting_challenge/settings.py`.
    * 12 monthly dummy variables are also added to the X data.
    * COVID event is also added to the X data as a spike in April 2020.
 
@@ -217,14 +217,14 @@ to validate models by calculating RMSE using walk-forward validation.
 The oldest data are used for hyperparameters tuning of models.
 
 * The models are created and optimized using hyperparameters tuning on the oldest data.
-The used models are defined by `MODELS` in `cpi_submission_zindi/settings.py`.
-The hyperparameters for models optimization using grid search are defined for each model in `cpi_submission_zindi/grid.py`.
+The used models are defined by `MODELS` in `RMB_CPI_nowcasting_challenge/settings.py`.
+The hyperparameters for models optimization using grid search are defined for each model in `RMB_CPI_nowcasting_challenge/grid.py`.
 The optimal models then are validated on the last two years of data by calculating RMSE using walk-forward validation.
 Finally, each optimal model is used to predict the CPI component for the next month.
 
 * The best model is constructed by selecting the optimal model with the smallest RMSE for each CPI component.
 * The best max model is constructed using the following steps:
-   1. Validation threshold is calculated as `(1. + RANGE) x smallest RMSE` from the previous step. `RANGE` is defined in `cpi_submission_zindi/settings.py`.
+   1. Validation threshold is calculated as `(1. + RANGE) x smallest RMSE` from the previous step. `RANGE` is defined in `RMB_CPI_nowcasting_challenge/settings.py`.
    2. All optimized models with RMSE less than the validation threshold are selected.
    3. The model giving the highest predicted CPI among all previously selected models is selected as the best max model.
 
