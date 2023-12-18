@@ -59,7 +59,7 @@ Instead, use provided files, which were downloaded on the submission day.**
 ## Project Structure
 The project is organized as follows:
 ````
-cpi_submission_zindi
+RMB_CPI_nowcasting_challenge
 ├── data
 │   ├── output
 │   │   ├── submission_best_3m.csv
